@@ -57,7 +57,7 @@ public class Memory extends JFrame
 	   }	   
 	   
 	   // Display a title.
-      setTitle("Memory");
+      setTitle(MemoryUI.getLabels().getString("msg.title"));
 
       // Specify an action for the close button.
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -98,7 +98,7 @@ public class Memory extends JFrame
 	   
 	   //Add an actionListener
 	   memButtons[_i][_j].addActionListener(new FlipListener());
-	   memButtons[_i][_j].setText("Flip!");
+	   memButtons[_i][_j].setText(MemoryUI.getLabels().getString("msg.action"));
 	  
 	   //Create the Images
 	   imgLabel[_i][_j] = new JLabel( new ImageIcon("Card" + 0 + ".jpg"));
@@ -144,7 +144,7 @@ public class Memory extends JFrame
     				  win++;
     				  if (win == columns)
     				  {
-    					  JOptionPane.showMessageDialog(null, "You win, time to start over!");
+    					  JOptionPane.showMessageDialog(null, MemoryUI.getLabels().getString("msg.win"));
     					  win = 0;    					  
     					  //Messy, but it gets the job done
     					  setVisible(false); //you can't see me!
@@ -153,7 +153,7 @@ public class Memory extends JFrame
     				  }
     				  else
     				  {
-    					  JOptionPane.showMessageDialog(null, "You got one!");
+    					  JOptionPane.showMessageDialog(null, MemoryUI.getLabels().getString("msg.one"));
     					  memButtons[holdCardRow][holdCardColumn].correct = true;
 	    				  memButtons[r][c].correct = true;
 	    				  memButtons[holdCardRow][holdCardColumn].setEnabled(false);
@@ -162,7 +162,7 @@ public class Memory extends JFrame
     			  }
     			  else
     			  {
-    				  JOptionPane.showMessageDialog(null, "Gah! No good!");
+    				  JOptionPane.showMessageDialog(null, MemoryUI.getLabels().getString("msg.notone"));
     				  memButtons[holdCardRow][holdCardColumn].setEnabled(true);
     				  tempImg = new ImageIcon("Card0.jpg");
     				  imgLabel[holdCardRow][holdCardColumn].setIcon(tempImg);
